@@ -1,33 +1,5 @@
-*{
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
-}
-header {
-  background-color: cyan;
-  width: 100%;
-}
-header h1 {
-  text-align: center;
-  padding: 10px;
-  font-size: 32px;
-  font-weight: bolder;
-}
-main {
-  text-align: center;
-  margin: 15% auto;
-  font-size: 24px;
-}
-main button {
-  padding: 4px;
-}
-footer {
-  position: absolute;
-  bottom: 0;
-  background-color: cyan;
-  width: 100%;
-}
 footer h3 {
   text-align: center;
-  padding: 8px;
+  padding: 8px 0 0 0;
+  font-size: 18px;
 }

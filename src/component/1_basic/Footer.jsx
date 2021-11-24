@@ -25,4 +25,4 @@ const Footer = (props) => {
 Footer.defaultProps = {
     nama: 'Awaludin',
 }
-export default Footer
+// export default Footer

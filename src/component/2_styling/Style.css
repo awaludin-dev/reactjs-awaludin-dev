@@ -1,0 +1,27 @@
+.top-biodata {
+    background-image: url('https://cdn-2.tstatic.net/jogja/foto/bank/images/pen-gun_0101.jpg');
+    background-size: 100%;
+    width: 100%;
+    text-align: center;
+}
+.top-biodata h3 {
+    padding: 300px 0 0 0;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.top-biodata h2 {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.top-biodata div {
+    padding: 0 0 100px 0;
+}
+.top-biodata button {
+    border-radius: 10px;
+    padding: 6px 24px;
+    font-size: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    cursor: no-drop;
+}
+.top-biodata button:hover {
+    background-color: #000;
+    color: #fff;
+}

@@ -28,4 +28,6 @@ class Count extends React.Component {
         )
     }
 }
-export default Count;
+
+Count.call();
+// export default Count;
