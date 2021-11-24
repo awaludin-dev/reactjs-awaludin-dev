@@ -8,7 +8,7 @@ export default class Main extends React.Component {
                 <div className="top-biodata">
                     <h3>College Student</h3>
                     <h2>Awaludin Nasir Ubadah</h2>
-                    <div><button>Github Profile</button></div>
+                    <div><a href="http://github.com/awaludin-dev"><button>Github Profile</button></a></div>
                 </div>
                 <div className="biodata" id="biodata">
                     <h1>Biodata</h1>
