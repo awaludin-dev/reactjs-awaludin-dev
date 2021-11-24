@@ -1,18 +1,20 @@
 .top-biodata {
     background-image: url('https://cdn-2.tstatic.net/jogja/foto/bank/images/pen-gun_0101.jpg');
     background-size: 100%;
+    background-repeat: no-repeat;
     width: 100%;
     text-align: center;
+    margin-top: 24px;
 }
 .top-biodata h3 {
-    padding: 300px 0 0 0;
+    padding: 22% 0 0 0;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 .top-biodata h2 {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 .top-biodata div {
-    padding: 0 0 100px 0;
+    padding: 0 0 10% 0;
 }
 .top-biodata button {
     border-radius: 10px;
@@ -24,4 +26,44 @@
 .top-biodata button:hover {
     background-color: #000;
     color: #fff;
+}
+.biodata h1 {
+    text-align: center;
+    padding: 64px 0 18px 0;
+    margin-top: -18px;
+}
+.biodata p {
+    text-align: justify;
+    margin: 0 20% 12px 20%;
+}
+.skill {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+    margin-top: -44px;
+    padding-top: 44px;
+}
+ol, ul {
+    list-style-position: inside;
+}
+.basic-skill, .framework {
+    background-color: #17a2b8;
+    margin: 24px 64px;
+    padding: 24px;
+    border-radius: 24px;
+}
+.basic-skill h1, .framework h1 {
+    margin-bottom: 12px;
+}
+form {
+    text-align: center;
+    margin: 0 auto 38px auto;
+    padding: 24px;
+    border-radius: 36px;
+    background-color: cyan;
+    width: fit-content;
+}
+form h1 {
+    margin-bottom: 22px;
 }
