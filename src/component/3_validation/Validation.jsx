@@ -4,13 +4,14 @@ export default class Contact extends React.Component {
     state = {
         nama: '',
         email: '',
+        noHP: '',
         message: '',
         errors: [],
     }
 
-    hadleSubmit = (e) => {
+    handleSubmit = (e) => {
         e.preventDefault();
-        const {nama, email, message} = this.state;
+        const {nama, email, noHP, message} = this.state;
 
         let messageErrors = [];
 
@@ -29,6 +30,15 @@ export default class Contact extends React.Component {
             }
         }
 
+        if(noHP.length === 0) {
+            messageErrors = [...messageErrors, 'No HP tidak boleh kosong'];
+        } else {
+            const re = /^(\+62|62|0)8[1-9][0-9]{6,9}$/;
+            if(!re.test(noHP)) {
+                messageErrors = [...messageErrors, 'No HP tidak  valid'];
+            }
+        }
+
         if(message.length === 0) {
             messageErrors = [...messageErrors, 'Pesan tidak boleh kosong'];
         }
@@ -42,6 +52,7 @@ export default class Contact extends React.Component {
             this.setState({
                 nama: '',
                 email: '',
+                noHP: '',
                 message: '',
                 errors: [],
             })
@@ -60,10 +71,11 @@ export default class Contact extends React.Component {
     
     render() {
         return (
-            <form id="contact" onSubmit={this.hadleSubmit}>
+            <form id="contact" onSubmit={this.handleSubmit}>
                 <h1>Contact Me</h1>
-                <h3>Nama : <input type="text" placeholder="nama" onChange={e => this.setState({nama: e.target.value})} value={this.state.nama}/></h3>
-                <h3>Email : <input type="email" placeholder="email"  onChange={e => this.setState({email: e.target.value})} value={this.state.email}/></h3>
+                <h3>Nama : <input type="text" placeholder="nama" name="nama" onChange={e => this.setState({nama: e.target.value})} value={this.state.nama}/></h3>
+                <h3>Email : <input type="email" placeholder="email" name="email" onChange={e => this.setState({email: e.target.value})} value={this.state.email}/></h3>
+                <h3>No HP : <input type="text" placeholder="nomor handphone" name="noHP" onChange={e => this.setState({noHP: e.target.value})} value={this.state.noHP}/></h3>
                 <h3>Pesan</h3>
                 <textarea style={
                     {resize: 'none', width: '90%', height: '88px'}
