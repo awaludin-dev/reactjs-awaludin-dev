@@ -1,7 +1,12 @@
 import React from 'react';
 import './Style.css';
+import Contact from '../3_validation/Validation';
 
 export default class Main extends React.Component {
+    state = {
+        message: [],
+    }
+
     render() {
         return(
             <main>
@@ -31,16 +36,7 @@ export default class Main extends React.Component {
                         </ul>
                     </div>
                 </div>
-                <form id="contact">
-                    <h1>Contact Me</h1>
-                    <h3>Nama : <input type="text" placeholder="nama"/></h3>
-                    <h3>Email : <input type="email" placeholder="email"/></h3>
-                    <h3>Pesan</h3>
-                    <textarea style={
-                        {resize: 'none', width: '90%', height: '88px'}
-                    }/><br/>
-                    <input type="submit" value="kirim"/>
-                </form>
+                <Contact/>
             </main>
         )
     }
