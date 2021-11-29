@@ -24,7 +24,7 @@ export default class Contact extends React.Component {
         if(email.length === 0) {
             messageErrors = [...messageErrors, 'Email tidak boleh kosong'];
         } else {
-            const re = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+            const re = /^(([^<>()[\]\\.,;:\s@\\"]+(\.[^<>()[\]\\.,;:\s@\\"]+)*)|(\\".+\\"))@(([^<>()[\]\\.,;:\s@\\"]+\.)+[^<>()[\]\\.,;:\s@\\"]{2,})$/i;
             if(!re.test(String(email).toLowerCase())) {
                 messageErrors = [...messageErrors, 'Email tidak valid'];
             }
