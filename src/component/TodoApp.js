@@ -31,7 +31,7 @@ class TodoApp extends React.Component {
         const showData =
             <table className="table">
                 <tr>
-                    <td width="200px">Nama</td>
+                    <td width="200px">Name</td>
                     <td width="24px">:</td>
                     <td width="120px">{this.state.nama.toUpperCase()}</td>
                 </tr>
