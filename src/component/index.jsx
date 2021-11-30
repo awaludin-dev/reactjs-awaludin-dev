@@ -1,16 +1,13 @@
 import React from 'react';
-import Footer from './2_styling/Footer';
-import Header from './2_styling/Header';
-import Main from './2_styling/Main';
-
+import TodoHeader from './TodoHeader';
+import TodoApp from './TodoApp';
 
 class Component extends React.Component {
     render() {
         return(
             <div>
-                <Header/>
-                <Main/>
-                <Footer/>
+                <TodoHeader/>
+                <TodoApp/>
             </div>
         )
     }
