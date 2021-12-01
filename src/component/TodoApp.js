@@ -1,62 +1,68 @@
 /* eslint-disable no-restricted-globals */
 import React from 'react';
 
-const API = 'https://api.genderize.io/?name=';
+const URL = 'https://newsapi.org/v2/top-headlines?country=id&apiKey=ffe24f56f15f4dea9595ee8ae8e1ccff';
+const searchURL = 'https://newsapi.org/v2/everything?q=';
+const API_KEY = '&apiKey=ffe24f56f15f4dea9595ee8ae8e1ccff';
+
 class TodoApp extends React.Component {
     state = {
-        nama: '',
-        data: [],
+        keyword: '',
+        dataNews: [],
         loading: true,
     }
     
     componentDidMount() {
-        let nama = prompt('Masukkan nama anda');
-        fetch(API + nama)
+        fetch(URL)
             .then((res) => res.json() )
             .then((data) => {
+                console.log(data.articles)
                 this.setState({
-                    nama: nama,
-                    data: data,
-                    loading: false,
+                    dataNews: data.articles,
+                    loading: !this.state.loading,
                 })
             })
             .catch((err) => console.log(err.message))
     }
 
-    componentDidUpdate() {
-        alert('Hasil prediksi sudah keluar')
+    changeNews = () => {
+        fetch(searchURL + this.state.keyword + API_KEY)
+            .then(this.setState({loading: !this.state.loading}))
+            .then((res) => res.json() )
+            .then((data) => {
+                console.log(data.articles)
+                this.setState({
+                    dataNews: data.articles,
+                    loading: !this.state.loading,
+                })
+            })
+            .catch((err) => console.log(err.message))
     }
 
     render() {
-        const showData =
-            <table className="table">
-                <tr>
-                    <td width="200px">Name</td>
-                    <td width="24px">:</td>
-                    <td width="120px">{this.state.nama.toUpperCase()}</td>
-                </tr>
-                <tr>
-                    <td width="200px">Gender</td>
-                    <td width="24px">:</td>
-                    <td width="120px">{this.state.data.gender}</td>
-                </tr>
-                <tr>
-                    <td width="200px">Probabilitas</td>
-                    <td width="24px">:</td>
-                    <td width="120px">{this.state.data.probability * 100}%</td>
-                </tr>
-            </table>;
+        const showData = this.state.dataNews.map((data) => {
+            return(
+                <article>
+                    <img src={data.urlToImage} alt="Gambar tidak ditemukan"/>
+                    <h3>{data.title}</h3>
+                    <p class="author">{data.author} - {data.publishedAt}</p>
+                    <p class="description">{data.description} <a href={data.url} target="_blank" rel="noreferrer"><button>Read More..</button></a></p>
+                </article> )
+        })
 
             const progressBar = <div class="progress"><div class="indeterminate"></div></div>;
 
         return(
             <main>
+                <input type="text" placeholder="SEARCH NEWS" width="100%" value={this.state.keyword} onChange={(e) => this.setState({keyword: e.target.value})}/>
+                <div style={{textAlign: 'center', marginBottom: '12px', marginTop: '-12px'}}><button onClick={this.changeNews} style={{padding: '6px 12px', backgroundColor: 'blue', color: 'white', borderRadius: '6px'}}>SEND</button></div>
+                <div id="news">
                 {
                     this.state.loading ?
                     progressBar :
                     showData
                 }
-                <footer>©2021 Awaludin - Allright Reserved</footer>
+                </div>
             </main>
         )
     }
