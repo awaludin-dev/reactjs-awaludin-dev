@@ -1,71 +1,121 @@
-/* eslint-disable no-restricted-globals */
-import React from 'react';
+/* eslint-disable react-hooks/exhaustive-deps */
+import { useState, useEffect } from "react";
 
-const URL = 'https://newsapi.org/v2/top-headlines?country=id&apiKey=ffe24f56f15f4dea9595ee8ae8e1ccff';
-const searchURL = 'https://newsapi.org/v2/everything?q=';
-const API_KEY = '&apiKey=ffe24f56f15f4dea9595ee8ae8e1ccff';
+const API = "https://api.genderize.io?name=";
+const TodoApp = () => {
+  const showData = () => {
+    return (
+      <table className="table">
+        <tr>
+          <td width="200px">Name</td>
+          <td width="24px">:</td>
+          <td width="120px">{nama.toUpperCase()}</td>
+        </tr>
+        <tr>
+          <td width="200px">Gender</td>
+          <td width="24px">:</td>
+          <td width="120px">{data.gender}</td>
+        </tr>
+        <tr>
+          <td width="200px">Probabilitas</td>
+          <td width="24px">:</td>
+          <td width="120px">{data.probability * 100}%</td>
+        </tr>
+      </table>
+    );
+  };
 
-class TodoApp extends React.Component {
-    state = {
-        keyword: '',
-        dataNews: [],
-        loading: true,
-    }
-    
-    componentDidMount() {
-        fetch(URL)
-            .then((res) => res.json() )
-            .then((data) => {
-                console.log(data.articles)
-                this.setState({
-                    dataNews: data.articles,
-                    loading: !this.state.loading,
-                })
-            })
-            .catch((err) => console.log(err.message))
-    }
+  const progressBar = () => {
+    return (
+      <div class="progress" style={{ marginTop: "10%" }}>
+        <div class="indeterminate"></div>
+      </div>
+    );
+  };
 
-    changeNews = () => {
-        fetch(searchURL + this.state.keyword + API_KEY)
-            .then(this.setState({loading: !this.state.loading}))
-            .then((res) => res.json() )
-            .then((data) => {
-                console.log(data.articles)
-                this.setState({
-                    dataNews: data.articles,
-                    loading: !this.state.loading,
-                })
-            })
-            .catch((err) => console.log(err.message))
-    }
+  // state = {
+  //   nama: "",
+  //   data: [],
+  //   loading: true
+  // };
 
-    render() {
-        const showData = this.state.dataNews.map((data) => {
-            return(
-                <article>
-                    <img src={data.urlToImage} alt="Gambar tidak ditemukan"/>
-                    <h3>{data.title}</h3>
-                    <p class="author">{data.author} - {data.publishedAt}</p>
-                    <p class="description">{data.description} <a href={data.url} target="_blank" rel="noreferrer"><button>Read More..</button></a></p>
-                </article> )
+  const [nama, setNama] = useState("");
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [button, setButton] = useState(true);
+
+  // const showPredict = () => {
+  //   fetch(API + nama)
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       // this.setState({
+  //       //   nama: this.state.nama,
+  //       //   data: data,
+  //       //   loading: false
+  //       // });
+  //       console.log("sukses");
+  //       setData(data);
+  //       setLoading(false);
+  //     })
+  //     .catch((err) => console.log(err.message));
+  // };
+
+  useEffect(() => {
+    if (nama === "") setLoading(true);
+    else {
+      return fetch(API + nama)
+        .then((res) => res.json())
+        .then((data) => {
+          // this.setState({
+          //   nama: this.state.nama,
+          //   data: data,
+          //   loading: false
+          // });
+          setData(data);
+          setLoading(false);
         })
-
-            const progressBar = <div class="progress"><div class="indeterminate"></div></div>;
-
-        return(
-            <main>
-                <input type="text" placeholder="SEARCH NEWS" width="100%" value={this.state.keyword} onChange={(e) => this.setState({keyword: e.target.value})}/>
-                <div style={{textAlign: 'center', marginBottom: '12px', marginTop: '-12px'}}><button onClick={this.changeNews} style={{padding: '6px 12px', backgroundColor: 'blue', color: 'white', borderRadius: '6px'}}>SEND</button></div>
-                <div id="news">
-                {
-                    this.state.loading ?
-                    progressBar :
-                    showData
-                }
-                </div>
-            </main>
-        )
+        .catch((err) => console.log(err.message));
     }
-}
+  }, [button]);
+
+  return (
+    <main>
+      <div style={{ textAlign: "center" }}>
+        <input
+          type="text"
+          value={nama}
+          onChange={(e) => {
+            setNama(e.target.value);
+            setLoading(true);
+          }}
+          style={{
+            padding: "6px 12px",
+            borderRadius: "6px",
+            fontSize: "24px",
+            textAlign: "center"
+          }}
+        />
+        <br />
+        <button
+          type="submit"
+          onClick={() => setButton(!button)}
+          style={{
+            padding: "6px 12px",
+            backgroundColor: "blue",
+            color: "white",
+            borderRadius: "6px",
+            marginTop: "12px",
+            marginBottom: "16px",
+            cursor: "pointer"
+          }}
+        >
+          CEK GENDER
+        </button>
+      </div>
+      {loading ? progressBar() : showData()}
+      <footer>©2021 Awaludin - Allright Reserved</footer>
+    </main>
+  );
+};
 
 export default TodoApp;

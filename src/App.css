@@ -1,62 +1,26 @@
-main {
-  margin: 12px 48px;
+* {
+  margin: 0;
+  padding: 0;
 }
-main input {
-  width: 98%;
-  height: 20px;
-  padding: 10px;
-  border-radius: 16px;
-  text-align: center;
-  margin: 20px auto;
-}
-#news {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-#news h3 {
-  font-weight: 900;
-  margin-bottom: 12px;
-}
-article {
-  margin: 12px;
-  width: 340px;
-  border: 1px solid #000;
-  border-radius: 16px;
-}
-article img {
-  width: 340px;
-  border-top-left-radius: 16px;
-  border-top-right-radius: 16px;
-}
-article h3 {
-  margin: 0 16px;
-}
-article .author {
-  margin: 5px 16px;
-  color: rgb(150, 150, 150);
-}
-article button {
-  padding: 4px;
-  background-color: rgb(17, 0, 255);
-  cursor: pointer;
-  color: #fff;
-  border-radius: 6px;
-}
-article button:hover {
-  background-color: rgb(112, 96, 255);
-}
-article .description {
-  margin: 5px 16px;
+.App {
+  width: 100vw;
+  height: 100vh;
+  background-image: url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/50f723eb-c755-4c4a-871b-2d65da6bb0da/detrrho-cf58058b-7ff2-4e20-9173-7266c4424693.jpg/v1/fill/w_800,h_496,q_75,strp/the_witcher_vs_striga_by_drawsouls_detrrho-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NDk2IiwicGF0aCI6IlwvZlwvNTBmNzIzZWItYzc1NS00YzRhLTg3MWItMmQ2NWRhNmJiMGRhXC9kZXRycmhvLWNmNTgwNThiLTdmZjItNGUyMC05MTczLTcyNjZjNDQyNDY5My5qcGciLCJ3aWR0aCI6Ijw9ODAwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.o_giTHwiia9cnF0zZjBgcXwuC3zMdD4tJwWvOT6zN_Y');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
 }
 footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
   background-color: red;
   color: #fff;
   text-align: center;
-  margin: 0;
-  width: 100%;
   padding: 8px;
   font-size: 18px;
+}
+main {
+  margin-top: 2%;
 }
 .marquee {
   background-color: red;
@@ -66,6 +30,21 @@ footer {
   margin-left: 0;
 }
 .red {color: yellow;}
+.typed {
+  text-transform: uppercase;
+  font-size: 36px;
+  font-weight: bolder;
+  margin-left: 36px;
+  color: #fff;
+}
+
+.table {
+  margin: 0 auto;
+  font-size: 36px;
+  background-color: gray;
+  border-radius: 24px;
+  padding: 3%;
+}
 
 /* animasi loading */
 .progress{
