@@ -1,5 +1,6 @@
 /* eslint-disable no-restricted-globals */
 import React from 'react';
+import './News.css';
 import TodoFooter from '../4_gender/Footer';
 
 const URL = 'https://newsapi.org/v2/top-headlines?country=id&apiKey=ffe24f56f15f4dea9595ee8ae8e1ccff';
@@ -17,7 +18,6 @@ class News extends React.Component {
         fetch(URL)
             .then((res) => res.json() )
             .then((data) => {
-                console.log(data.articles)
                 this.setState({
                     dataNews: data.articles,
                     loading: !this.state.loading,
@@ -31,7 +31,6 @@ class News extends React.Component {
             .then(this.setState({loading: !this.state.loading}))
             .then((res) => res.json() )
             .then((data) => {
-                console.log(data.articles)
                 this.setState({
                     dataNews: data.articles,
                     loading: !this.state.loading,
@@ -41,24 +40,24 @@ class News extends React.Component {
     }
 
     render() {
-        const showData = this.state.dataNews.map((data) => {
+        const showData = this.state.dataNews.map((data, i) => {
             return(
-                <article>
+                <article className="article" key={i}>
                     <img src={data.urlToImage} alt="Gambar tidak ditemukan"/>
                     <h3>{data.title}</h3>
-                    <p class="author">{data.author} - {data.publishedAt}</p>
-                    <p class="description">{data.description} <a href={data.url} target="_blank" rel="noreferrer"><button>Read More..</button></a></p>
+                    <p className="author">{data.author} - {data.publishedAt}</p>
+                    <p className="description">{data.description} <a href={data.url} target="_blank" rel="noreferrer"><button>Read More..</button></a></p>
                 </article> )
         })
 
-            const progressBar = <div class="progress"><div class="indeterminate"></div></div>;
+            const progressBar = <div className="progress"><div className="indeterminate"></div></div>;
 
         return(
             <>
-                <main>
+                <main className="news">
                     <input type="text" placeholder="SEARCH NEWS" width="100%" value={this.state.keyword} onChange={(e) => this.setState({keyword: e.target.value})}/>
                     <div style={{textAlign: 'center', marginBottom: '12px', marginTop: '-12px'}}><button onClick={this.changeNews} style={{padding: '6px 12px', backgroundColor: 'blue', color: 'white', borderRadius: '6px'}}>SEND</button></div>
-                    <div id="news">
+                    <div className="data-news">
                     {
                         this.state.loading ?
                         progressBar :

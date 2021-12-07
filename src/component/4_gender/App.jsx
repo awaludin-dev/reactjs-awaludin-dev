@@ -115,7 +115,7 @@ const AppPredictGender = () => {
         </button>
       </div>
       {loading ? progressBar() : showData()}
-      <footer>©2021 Awaludin - Allright Reserved</footer>
+      <footer style={{backgroundColor: '#333'}}>©2021 Awaludin - Allright Reserved</footer>
     </main>
   );
 };

@@ -16,13 +16,19 @@ class Count extends React.Component {
     }
 
     render() {
+        const style={
+            padding: '8px 12px'
+        }
+
         return(
-            <div>
-                <main>
-                    <h3>Angka</h3>
-                    <button onClick={this.minusAngka}>-</button>
-                    <span>{'  '}{this.state.angka}{'  '}</span>
-                    <button onClick={this.addAngka}>+</button>
+            <div style={{display: 'flex', width: '96vw', height: '90vh', alignItems: 'center', justifyContent: 'center'}}>
+                <main style={{margin: 0, display: 'block', textAlign: 'center'}}>
+                    <h1>Angka</h1>
+                    <h2 style={{fontSize: '24px'}}>
+                    <button onClick={this.minusAngka} style={style}>-</button>
+                    {'  '}{this.state.angka}{'  '}
+                    <button onClick={this.addAngka} style={style}>+</button>
+                    </h2>
                 </main>
             </div>
         )
