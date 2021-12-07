@@ -9,6 +9,7 @@ import Count from './1_basic/Count';
 import Navbar from './Navbar/Navbar';
 import Marquee from './4_gender/Marquee';
 import AppPredictGender from './4_gender/App';
+import News from './5_news/News';
 
 class Component extends React.Component {
     render() {
@@ -18,7 +19,7 @@ class Component extends React.Component {
                     <Navbar/>
                     <Routes>
                         <Route path="/" element={<Main />} />
-                        {/* <Route path="/news" element={} /> */}
+                        <Route path="/news" element={<News />} />
                         <Route path="/count" element={<Count />} />
                         <Route path="/predict" element={<><Marquee /><AppPredictGender /></>} />
                     </Routes>
