@@ -1,4 +1,7 @@
-// import React from 'react';
+import React from 'react';
+import {
+    Link
+} from 'react-router-dom';
 
 // class Header extends React.Component {
 //     render() {
@@ -12,17 +15,27 @@
 //     }
 // }
 
-const Header = ({nama}) => {
+// const Header = ({nama}) => {
+//     return(
+//         <div>
+//             <header>
+//                 <h1>{nama}</h1>
+//             </header>
+//         </div>
+//     )
+// }
+
+// Header.defaultProps = {
+//     nama: 'Awaludin',
+// }
+
+const Header = () => {
     return(
-        <div>
-            <header>
-                <h1>{nama}</h1>
-            </header>
-        </div>
+        <nav>
+            <Link to="/">Home</Link>
+            <Link to="/count">Count</Link>
+        </nav>
     )
 }
 
-Header.defaultProps = {
-    nama: 'Awaludin',
-}
-// export default Header;
+export default Header;

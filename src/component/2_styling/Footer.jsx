@@ -4,6 +4,8 @@ import styled from 'styled-components';
 const Kaki = styled.footer`
     padding: 0 0 1px 0;
     background-color: #17a2b8;
+    position: fixed;
+    bottom: 0;
     width: 100%;
 `
 

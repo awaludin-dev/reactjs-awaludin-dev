@@ -2,13 +2,6 @@
   margin: 0;
   padding: 0;
 }
-.App {
-  width: 100vw;
-  height: 100vh;
-  background-image: url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/50f723eb-c755-4c4a-871b-2d65da6bb0da/detrrho-cf58058b-7ff2-4e20-9173-7266c4424693.jpg/v1/fill/w_800,h_496,q_75,strp/the_witcher_vs_striga_by_drawsouls_detrrho-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NDk2IiwicGF0aCI6IlwvZlwvNTBmNzIzZWItYzc1NS00YzRhLTg3MWItMmQ2NWRhNmJiMGRhXC9kZXRycmhvLWNmNTgwNThiLTdmZjItNGUyMC05MTczLTcyNjZjNDQyNDY5My5qcGciLCJ3aWR0aCI6Ijw9ODAwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.o_giTHwiia9cnF0zZjBgcXwuC3zMdD4tJwWvOT6zN_Y');
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-}
 footer {
   position: fixed;
   bottom: 0;

@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 
 const API = "https://api.genderize.io?name=";
-const TodoApp = () => {
+const AppPredictGender = () => {
   const showData = () => {
     return (
       <table className="table">
@@ -120,4 +120,4 @@ const TodoApp = () => {
   );
 };
 
-export default TodoApp;
+export default AppPredictGender;
